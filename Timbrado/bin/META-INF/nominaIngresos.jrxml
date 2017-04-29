@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-03-17T11:59:43 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report12" pageWidth="555" pageHeight="802" whenNoDataType="NoPages" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="52133f34-a666-40a9-93da-ec3448fdf731">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="xPath">
+		<![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Percepciones/nomina12:Percepcion]]>
+	</queryString>
+	<field name="tipoIngreso" class="java.lang.String">
+		<fieldDescription><![CDATA[@TipoPercepcion]]></fieldDescription>
+	</field>
+	<field name="clave" class="java.lang.String">
+		<fieldDescription><![CDATA[@Clave]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[@Concepto]]></fieldDescription>
+	</field>
+	<field name="importeGravado" class="java.lang.Double">
+		<fieldDescription><![CDATA[@ImporteGravado]]></fieldDescription>
+	</field>
+	<field name="importeExento" class="java.lang.Double">
+		<fieldDescription><![CDATA[@ImporteExento]]></fieldDescription>
+	</field>
+	<field name="ingresosTotal" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@TotalPercepciones]]></fieldDescription>
+	</field>
+	<columnHeader>
+		<band height="13">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="23" height="13" forecolor="#000000" backcolor="#CCCCCC" uuid="5ea7cb5e-3f40-4917-8cd9-90ec40aab003"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Adobe Caslon Pro" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="23" y="0" width="212" height="13" forecolor="#000000" backcolor="#CCCCCC" uuid="9d6c7772-f24d-479a-9d72-854e3d1ff5e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Adobe Caslon Pro" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Percepciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="235" y="0" width="42" height="13" forecolor="#000000" backcolor="#CCCCCC" uuid="b0933f5b-7a88-4743-9650-e879d4c5d0a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Adobe Caslon Pro" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="23" height="14" uuid="d4519781-fa20-45cb-b981-13e24ee82081"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clave}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="235" y="0" width="42" height="14" uuid="bf4e4152-2fd3-469a-a841-ad4f04c2cad3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importeGravado}+$F{importeExento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="23" y="0" width="212" height="14" uuid="ed9b42ab-a619-4179-9993-7f7bf9f1edcc"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

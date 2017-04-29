@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="BaseSireH">
+		<class>danielcruzmx.com.data.HistoricoPago</class>
+		<class>danielcruzmx.com.data.ConceptoPagado</class>
+		<class>danielcruzmx.com.data.TnComprobanteDig</class>
+		<class>danielcruzmx.com.data.TnComprobanteDigPK</class>
+		<properties>
+      		<property name="javax.persistence.jdbc.user" value="PRUEBA_FH" />
+      		<property name="javax.persistence.jdbc.password" value="renovada84" />
+      		<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@172.18.3.76:1522/EOM2"/>
+      		<!--property name="eclipselink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+        	<property name="eclipselink.jdbc.url" value="jdbc:oracle:thin:@172.28.7.74:1512/dsireh"/>
+      		<property name="javax.persistence.jdbc.user" value="sireh_app" />
+      		<property name="javax.persistence.jdbc.password" value="saturno321" /-->
+      		<!--property name="eclipselink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+        	<property name="eclipselink.jdbc.url" value="jdbc:oracle:thin:@172.28.3.162:1662:PSIREH"/>
+      		<property name="javax.persistence.jdbc.user" value="CONSULTA_DCC" />
+      		<property name="javax.persistence.jdbc.password" value="" /-->
+     	</properties>
+	</persistence-unit>	
+</persistence>

@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-03-17T19:04:36 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report12" pageWidth="612" pageHeight="792" whenNoDataType="NoPages" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c99cc2dc-670b-4806-bf52-52e49207ff1f">
+	<property name="ireport.zoom" value="1.9965000000000037"/>
+	<property name="ireport.x" value="206"/>
+	<property name="ireport.y" value="135"/>
+	<parameter name="IMAGES_URI" class="java.lang.String">
+		<defaultValueExpression><![CDATA["C:/Users/daniel_cruz/workspace2/Timbrado/bin/META-INF"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:/Users/daniel_cruz/workspace2/Timbrado/bin/META-INF"]]></defaultValueExpression>
+	</parameter>
+	<field name="fechaEmision" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@Fecha]]></fieldDescription>
+	</field>
+	<field name="descuentoTotal" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@descuento]]></fieldDescription>
+	</field>
+	<field name="ingresosTotal" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@subTotal]]></fieldDescription>
+	</field>
+	<field name="liquido" class="java.lang.Double">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@total]]></fieldDescription>
+	</field>
+	<field name="folio" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@Folio]]></fieldDescription>
+	</field>
+	<field name="serie" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@Serie]]></fieldDescription>
+	</field>
+	<field name="certificado" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/@Certificado]]></fieldDescription>
+	</field>
+	<field name="rfc" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Emisor/@Rfc]]></fieldDescription>
+	</field>
+	<field name="nombreEmisor" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Emisor/@Nombre]]></fieldDescription>
+	</field>
+	<field name="nombreReceptor" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Receptor/@Nombre]]></fieldDescription>
+	</field>
+	<field name="rfcReceptor" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Receptor/@Rfc]]></fieldDescription>
+	</field>
+	<field name="curpReceptor" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Receptor/@Curp]]></fieldDescription>
+	</field>
+	<field name="NSS" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Receptor/@NumSeguridadSocial]]></fieldDescription>
+	</field>
+	<field name="banco" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Receptor/@Banco]]></fieldDescription>
+	</field>
+	<field name="clabe" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Receptor/@CuentaBancaria]]></fieldDescription>
+	</field>
+	<field name="departamento" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Receptor/@Departamento]]></fieldDescription>
+	</field>
+	<field name="calle" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Emisor/cfdi:DomicilioFiscal/@calle]]></fieldDescription>
+	</field>
+	<field name="tipoRegimen" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/@TipoRegimen]]></fieldDescription>
+	</field>
+	<field name="fechaInicialPago" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/@FechaInicialPago]]></fieldDescription>
+	</field>
+	<field name="fechaFinalPago" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/@FechaFinalPago]]></fieldDescription>
+	</field>
+	<field name="fechaPago" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/@FechaPago]]></fieldDescription>
+	</field>
+	<field name="totalGravado" class="java.lang.Double">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Ingresos/@TotalGravado]]></fieldDescription>
+	</field>
+	<field name="generales" class="java.lang.String">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Receptor/@Puesto]]></fieldDescription>
+	</field>
+	<field name="percepcionesTG" class="java.lang.Double">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Percepciones/@TotalGravado]]></fieldDescription>
+	</field>
+	<field name="percepcionesTE" class="java.lang.Double">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Percepciones/@TotalExento]]></fieldDescription>
+	</field>
+	<field name="deduccionesTG" class="java.lang.Double">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Deducciones/@TotalOtrasDeducciones]]></fieldDescription>
+	</field>
+	<field name="deduccionesTE" class="java.lang.Double">
+		<fieldDescription><![CDATA[/cfdi:Comprobante/cfdi:Complemento/nomina12:Nomina/nomina12:Deducciones/@TotalImpuestosRetenidos]]></fieldDescription>
+	</field>
+	<background>
+		<band height="572" splitType="Stretch">
+			<image isLazy="true">
+				<reportElement x="72" y="140" width="400" height="420" uuid="b1362b94-8442-433d-b91c-587f4fda5f08"/>
+				<imageExpression><![CDATA[$P{IMAGES_URI}+"/FONDOAGUILA.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="220" splitType="Stretch">
+			<rectangle>
+				<reportElement mode="Transparent" x="295" y="120" width="277" height="100" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="e5718b24-4b00-4e48-93ae-48748c05a526"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="138" width="42" height="13" uuid="12e5a9a3-24ca-48e5-9132-7c941fd08864"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[RFC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="151" width="42" height="13" uuid="730f357c-bb19-45c5-bb8e-8cc7df141c58"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[CURP :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="138" width="198" height="13" uuid="889fab80-433d-4f46-aae8-4927e0afffdb"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rfcReceptor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="151" width="198" height="13" uuid="58271f87-c0e0-43db-ae76-798c4fdef5d1"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{curpReceptor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="164" width="42" height="13" uuid="c6edd1eb-7c5e-4a54-b688-650c095d3bc1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[NSS :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="164" width="198" height="13" uuid="893b8dbc-d785-4941-8afd-4c4c43de75cb"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NSS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="177" width="42" height="13" uuid="7573e98b-59c2-4e70-b2bb-4c8c24676150"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Banco :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="177" width="198" height="13" uuid="958094ac-2891-4bfe-8a58-8d9393ab3bb0"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{banco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="190" width="42" height="13" uuid="2d827ae5-1440-4a6d-af0b-0596c20a06a3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[CLABE :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="190" width="198" height="13" uuid="9cdfb179-52b1-4016-b5f2-a16f0c8bd451"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clabe}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="125" width="52" height="13" uuid="8f11fcf1-6b3c-4613-a6a3-036513bf84bd"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[UR :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="125" width="199" height="13" uuid="8ccf425d-1719-4a39-8580-ec224d2434a9"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{departamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="62" width="77" height="13" uuid="e4763bb4-3f38-42a5-bd9a-1bd1e09bd0d8"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de Emision :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="62" width="182" height="13" uuid="fd7d030e-d59d-4c12-b4cc-c452faab2c0c"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaEmision}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="203" width="52" height="13" uuid="8b5aa255-638d-40d8-ad5d-3c6164a4d81b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[P.C.P. :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="88" width="121" height="13" uuid="fcff6889-9090-4921-8785-f9b610c6a023"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat( "dd/MMM/yyyy", new Locale("es","MX") ).format( new SimpleDateFormat( "yyyy-MM-dd" ).parse( $F{fechaPago} ) )]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" isLazy="true">
+				<reportElement positionType="FixRelativeToBottom" x="7" y="3" width="120" height="40" uuid="cd45ca98-654b-4085-9011-b71782f2307b"/>
+				<imageExpression><![CDATA[$P{IMAGES_URI}+"/SHCP.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="107" width="277" height="13" backcolor="#CCCCCC" uuid="c0349f87-b280-4dfb-8cd5-92d1c88b4003"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Datos del Empleado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="295" y="107" width="277" height="13" backcolor="#CCCCCC" uuid="ed74dae6-40c6-4cd1-bb55-e23b29911350"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Datos Laborales]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="2" y="120" width="277" height="100" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="bc85930b-16f3-4550-abf8-2923f579d46e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="295" y="138" width="52" height="13" uuid="0ad12298-8906-44d6-b326-760cf58f7362"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Puesto :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="151" width="52" height="13" uuid="73622516-1893-44ee-b2a4-6dbf10a22ec5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Plaza :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="164" width="52" height="13" uuid="c9e77928-5fb6-4a51-8358-26bc2b665746"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Nivel :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="177" width="52" height="13" uuid="007e2fc7-3e30-4662-bb43-daf5bb3ba4c5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Distribución :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="190" width="52" height="13" uuid="068cafda-843c-4fc9-b3be-18a2cda88ee9"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[No. Pensión :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="75" width="77" height="13" uuid="24c913ea-f01b-4308-a08a-9fc1de06009c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha  de Timbrado :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="75" width="182" height="13" uuid="1ca53af4-311b-4bfb-a465-5d24d8eb4d9b"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+			</textField>
+			<staticText>
+				<reportElement x="295" y="88" width="77" height="13" uuid="52da23d2-6f74-4077-9a2e-fe440ccfdc04"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[No. Certificado :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="88" width="182" height="13" uuid="1a3a5702-8f09-4245-bddc-3a79d114b8a5"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="49" width="63" height="13" uuid="62c919a6-e145-4152-8641-c6ebb610dc49"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Tipo de Nómina :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="49" width="77" height="13" uuid="ade7bb75-0571-4551-b05a-2ce1d4fd1c29"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Folio Fiscal :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="49" width="182" height="13" uuid="ab6f5c2b-381b-4a49-868e-099be2df4fa0"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="49" width="111" height="13" uuid="c9daedcb-4acf-4324-bcb6-3dd589c5cc62"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 0, 13 )]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="46" width="569" height="1" forecolor="#CCCCCC" uuid="09488d98-7301-454c-8079-35d79a1e05bb"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="295" y="25" width="277" height="21" forecolor="#000000" backcolor="#CCCCCC" uuid="bb98b8cb-8982-4bcb-b12c-9412fc47b333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Comprobante de Pago de Nómina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="125" width="42" height="13" uuid="0b9d32c1-6ef6-479f-a006-294b99fcec97"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="62" width="63" height="13" uuid="e76fc54d-b611-4812-ae65-50deb0b7a94a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Folio :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="62" width="49" height="13" uuid="8aabc159-39a0-41dc-9d6f-da6aa3cbe722"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{folio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="140" y="75" width="66" height="13" uuid="c89c0a55-349b-4d35-ad93-645728f26877"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat( "dd/MMM/yyyy", new Locale("es","MX") ).format( new SimpleDateFormat( "yyyy-MM-dd" ).parse( $F{fechaFinalPago} ) )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="72" y="75" width="48" height="13" uuid="c8c94c3c-fb04-4cd5-9431-a6dd75d595e1"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat( "dd/MMM/yyyy", new Locale("es","MX") ).format( new SimpleDateFormat( "yyyy-MM-dd" ).parse( $F{fechaInicialPago} ) )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="125" width="198" height="13" uuid="6e322a6e-b2b2-47dc-8d31-d3c397109acb"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreReceptor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="75" width="63" height="13" uuid="63d9850f-4da5-4bd8-82aa-13330bc27133"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Período de Pago :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="75" width="12" height="13" uuid="bf09bc62-ec9b-407a-b7e2-2b8d4ef19538"/>
+				<textElement textAlignment="Center">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="88" width="63" height="13" uuid="09dc1695-bf68-46c0-8f31-9715447fe40f"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de Pago :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="151" width="199" height="13" uuid="794ae1e4-9cf3-4716-a654-982dfee13b77"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 13, 19 )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="164" width="199" height="13" uuid="bd905d47-8a08-43eb-8855-169e531cd693"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 19, 23 )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="177" width="199" height="13" uuid="1784dd6f-4a1c-470c-8bd7-7bb4391156c7"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 23, 33 )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="190" width="199" height="13" uuid="187284b7-e18c-41ee-abd7-1f319e424769"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 33, 35 )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="203" width="199" height="13" uuid="a48681db-4e42-4bc5-b9cf-0d74c783af5f"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 35, 45 )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="354" y="138" width="199" height="13" uuid="80ac4e8a-5f9f-4b08-a4ea-05f72ce6190b"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{generales}.substring( 45,52 ).concat(" ").concat($F{generales}.substring( 52))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="189" y="49" width="35" height="13" uuid="7933dbc9-2655-4ba7-ac23-b6fecafdc159"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Serie :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="228" y="49" width="49" height="13" uuid="f9dda740-9ab1-4e86-b9a2-73ad43290820"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{serie}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="117">
+			<subreport>
+				<reportElement x="0" y="0" width="278" height="117" uuid="c240f362-fc29-4529-9feb-5bdb5ec5b6bc"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//nomina12:Percepcion")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/nominaIngresos.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="295" y="0" width="276" height="117" uuid="eff747bc-c6ec-435b-a074-85d57e91cb3a"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("//nomina12:Deduccion")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "/nominaDescuentos.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="199">
+			<staticText>
+				<reportElement x="0" y="104" width="51" height="45" uuid="e31493e3-f20f-47f1-8991-a805ec3644ce"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="9"/>
+				</textElement>
+				<text><![CDATA[Sello CFDI :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="104" width="373" height="45" uuid="53dc9bb9-1375-4f2d-8792-9ec7bb063a75"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="9"/>
+				</textElement>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="153" width="51" height="45" uuid="416d8c52-9f03-4e3b-a0a1-a9f909820f5e"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="9"/>
+				</textElement>
+				<text><![CDATA[Sello SAT :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="153" width="373" height="45" uuid="89ea45e2-cc16-46d0-84b1-2698ef0eca7d"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="9"/>
+				</textElement>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="48" width="52" height="45" uuid="261dd8a1-6df9-44c4-abe1-320806af80ba"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="9"/>
+				</textElement>
+				<text><![CDATA[Certificado :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="48" width="373" height="45" uuid="0b3335e5-0972-47d0-bb6a-17f3df36c3a0"/>
+				<textElement>
+					<font fontName="Adobe Caslon Pro" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{certificado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="100" width="423" height="1" uuid="fa6fa9a4-8cb2-4049-a650-bbd44a0d2a45"/>
+			</line>
+			<line>
+				<reportElement x="1" y="150" width="423" height="1" uuid="a37d595b-a6d9-4552-a5d1-4df1e1fc172a"/>
+			</line>
+			<staticText>
+				<reportElement x="121" y="13" width="83" height="13" uuid="97223a57-18f2-4740-bd98-d09435bbea58"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Total Percepciones :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="13" width="83" height="13" uuid="0d65d3ad-0a63-4ab1-811c-dfaa799838b3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Total Descuentos :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="405" y="26" width="83" height="13" uuid="19c58c24-c128-4f5a-a0f3-8f22ec071008"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<text><![CDATA[Importe Neto :]]></text>
+			</staticText>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="488" y="13" width="67" height="13" uuid="dcaa4cc0-5aca-42cd-a08b-61e243c40264"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deduccionesTG}+$F{deduccionesTE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="204" y="13" width="67" height="13" uuid="f47a1a1f-78ec-4d77-afa3-a3fabbd596ae"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{percepcionesTG}+$F{percepcionesTE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00" isBlankWhenNull="true">
+				<reportElement x="488" y="26" width="68" height="13" uuid="47ad16c2-62df-4d1e-99fa-cc2b64cad91a"/>
+				<textElement textAlignment="Right">
+					<font fontName="Adobe Caslon Pro" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{percepcionesTG}+$F{percepcionesTE})-($F{deduccionesTG}+$F{deduccionesTE})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="12" width="569" height="1" forecolor="#CCCCCC" uuid="222a7670-947b-428a-858f-de04c89b0f26"/>
+			</line>
+			<image scaleImage="FillFrame" isLazy="true">
+				<reportElement positionType="FixRelativeToBottom" x="432" y="59" width="140" height="140" uuid="874a2f43-5281-485e-a98f-9f4771b062a9"/>
+				<imageExpression><![CDATA[$P{IMAGES_URI}+"/qr_png.png"]]></imageExpression>
+			</image>
+		</band>
+	</columnFooter>
+</jasperReport>
