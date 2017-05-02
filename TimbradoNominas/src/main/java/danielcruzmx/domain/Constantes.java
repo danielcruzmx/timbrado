@@ -17,10 +17,13 @@ public class Constantes {
  	private String  versionNomina;
 
  	private String  contrasenia;
+ 	private String  certificado;
+ 	private String  numCertificado;
  	private String  fileCSDp12;
  	private String  fileEsquemaCFDIV33;
  	private String  fileEsquemaNominaV12;
  	private String  fileTransformCadOrig;
+ 	private String  fileKey;
  	
 	public String getRegimenFiscal() {
 		return regimenFiscal;
@@ -129,6 +132,24 @@ public class Constantes {
 	}
 	public void setFileCSDp12(String fileCSDp12) {
 		this.fileCSDp12 = fileCSDp12;
+	}
+	public String getFileKey() {
+		return fileKey;
+	}
+	public void setFileKey(String fileKey) {
+		this.fileKey = fileKey;
+	}
+	public String getCertificado() {
+		return certificado;
+	}
+	public void setCertificado(String certificado) {
+		this.certificado = certificado;
+	}
+	public String getNumCertificado() {
+		return numCertificado;
+	}
+	public void setNumCertificado(String numCertificado) {
+		this.numCertificado = numCertificado;
 	}
  	
 }

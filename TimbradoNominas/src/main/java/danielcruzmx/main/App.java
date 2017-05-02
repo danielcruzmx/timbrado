@@ -2,6 +2,7 @@ package danielcruzmx.main;
 
 import java.util.List;
 
+import danielcruzmx.business.GeneraComprobante;
 import danielcruzmx.business.GeneraListaPagos;
 import danielcruzmx.domain.DatosXML;
 
@@ -14,6 +15,13 @@ public class App {
 		
 		for(DatosXML d: ldatos){
 			System.out.println("Dato ->" + d.getFolio() + " " + d.getRfcReceptor() + " " + d.getNombreReceptor());
+		    GeneraComprobante xml = new GeneraComprobante();
+		    String resultado = xml.getXML(d, 
+		    		      				datos.getConstantes().getFileCSDp12(), 
+		    		      				datos.getConstantes().getContrasenia(), 
+		    		      				datos.getConstantes().getFileTransformCadOrig());
+		    System.out.println(d.getCadenaOriginal());
+		    System.out.println(resultado);
 		}
 		
 

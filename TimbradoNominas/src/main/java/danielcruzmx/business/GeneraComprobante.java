@@ -13,6 +13,7 @@ import java.math.RoundingMode;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.Signature;
@@ -36,7 +37,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.codec.binary.Base64;
-
 import sun.misc.BASE64Encoder;
 import mx.gob.sat.cfd._3.Comprobante;
 import mx.gob.sat.cfd._3.ObjectFactory;
@@ -74,8 +74,10 @@ public class GeneraComprobante
         comprobante.setFolio(dato.getFolio());
         comprobante.setFecha(getXMLGregorianCalendarNow());
         comprobante.setFormaPago(dato.getFormaPago());
-        comprobante.setNoCertificado(this.getNoCertificado(fileCSD, password));
-        comprobante.setCertificado(this.getCertificado(fileCSD, password));
+        comprobante.setCertificado(dato.getCertificado());
+        comprobante.setNoCertificado(dato.getNoCertificado());
+        //comprobante.setNoCertificado(this.getNoCertificado(fileCSD, password));
+        //comprobante.setCertificado(this.getCertificado(fileCSD, password));
         comprobante.setSubTotal(dato.getSubTotal().setScale(2, RoundingMode.CEILING));   
         comprobante.setDescuento(dato.getDescuento().setScale(2, RoundingMode.CEILING)); 
         comprobante.setMoneda(CMoneda.MXN);
@@ -262,7 +264,7 @@ public class GeneraComprobante
         dato.setCadenaOriginal(this.getCadenaOriginal(xml, fileTrasf));
         
         // genera sello digital 
-        comprobante.setSello(getSelloDigital12(dato.getCadenaOriginal(), fileCSD, password));
+        comprobante.setSello(getSelloDummy(dato.getCadenaOriginal()));
         
         // generar archivo XML con sello digital
         StringWriter archivoXML = getComprobanteXML(comprobante); 
@@ -370,6 +372,65 @@ public class GeneraComprobante
 		return certificado;
 	}
 	
+	private String getSelloDummy(String cadena)  {
+
+		try {
+			
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			md.update(cadena.getBytes());
+
+			byte byteData[] = md.digest();
+
+			//convert the byte to hex format method 1
+			StringBuffer sb = new StringBuffer();
+			for (int i = 0; i < byteData.length; i++) {
+				sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+			}
+
+			return sb.toString();
+
+		} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+		}
+	}
+	
+	/*public String getSelloDigitalPKCS8(String cadenaOriginal, String fileName, String pass)
+	{ 
+		String selloDigital = null; 
+		
+		try {	
+			
+			File pkeyFile = new File(fileName);
+			byte[] decodedBytes = Base64.decodeBase64(pass.getBytes());
+			String password = new String(decodedBytes);
+			
+			byte[] clavePrivada = FileUtils.readFileToByteArray(pkeyFile);
+			PKCS8Key pkcs8 = new PKCS8Key(clavePrivada, password.toCharArray());
+			PrivateKey pk = pkcs8.getPrivateKey(); 
+			Signature firma = Signature.getInstance("SHA256withRSA"); 
+			firma.initSign(pk); 
+			firma.update(cadenaOriginal.getBytes("UTF-8")); 
+			BASE64Encoder b64 = new BASE64Encoder(); 
+			selloDigital = b64.encode(firma.sign()); 
+			
+		} catch (UnsupportedEncodingException e) { 
+			e.printStackTrace(); 
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (GeneralSecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		System.out.println(quitarSaltos(selloDigital)); 
+		return quitarSaltos(selloDigital); 
+	}*/
+	
 	private String getSelloDigital12(String cadenaOriginal, String fileName, String password) { 
 		
 		String selloDigital = null; 
@@ -431,7 +492,7 @@ public class GeneraComprobante
         StringReader reader = new StringReader(xml.toString());
         StreamSource sourceXML = new StreamSource(reader);
  
-        // crear el procesador XSLT que nos ayudará a generar la cadena original
+        // crear el procesador XSLT que nos ayudarï¿½ a generar la cadena original
         // con base en las reglas del archivo XSLT
         try {
         	TransformerFactory tFactory = TransformerFactory.newInstance();
