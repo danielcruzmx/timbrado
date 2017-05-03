@@ -13,7 +13,6 @@ import java.math.RoundingMode;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.Signature;
@@ -74,10 +73,10 @@ public class GeneraComprobante
         comprobante.setFolio(dato.getFolio());
         comprobante.setFecha(getXMLGregorianCalendarNow());
         comprobante.setFormaPago(dato.getFormaPago());
-        comprobante.setCertificado(dato.getCertificado());
-        comprobante.setNoCertificado(dato.getNoCertificado());
-        //comprobante.setNoCertificado(this.getNoCertificado(fileCSD, password));
-        //comprobante.setCertificado(this.getCertificado(fileCSD, password));
+        //comprobante.setCertificado(dato.getCertificado());
+        //comprobante.setNoCertificado(dato.getNoCertificado());
+        comprobante.setNoCertificado(this.getNoCertificado(fileCSD, password));
+        comprobante.setCertificado(this.getCertificado(fileCSD, password));
         comprobante.setSubTotal(dato.getSubTotal().setScale(2, RoundingMode.CEILING));   
         comprobante.setDescuento(dato.getDescuento().setScale(2, RoundingMode.CEILING)); 
         comprobante.setMoneda(CMoneda.MXN);
@@ -264,7 +263,7 @@ public class GeneraComprobante
         dato.setCadenaOriginal(this.getCadenaOriginal(xml, fileTrasf));
         
         // genera sello digital 
-        comprobante.setSello(getSelloDummy(dato.getCadenaOriginal()));
+        comprobante.setSello(getSelloDigital12(dato.getCadenaOriginal(), fileCSD, password));
         
         // generar archivo XML con sello digital
         StringWriter archivoXML = getComprobanteXML(comprobante); 
@@ -372,7 +371,7 @@ public class GeneraComprobante
 		return certificado;
 	}
 	
-	private String getSelloDummy(String cadena)  {
+	/*private String getSelloDummy(String cadena)  {
 
 		try {
 			
@@ -394,7 +393,7 @@ public class GeneraComprobante
 				e.printStackTrace();
 				return null;
 		}
-	}
+	}*/
 	
 	/*public String getSelloDigitalPKCS8(String cadenaOriginal, String fileName, String pass)
 	{ 
@@ -492,7 +491,7 @@ public class GeneraComprobante
         StringReader reader = new StringReader(xml.toString());
         StreamSource sourceXML = new StreamSource(reader);
  
-        // crear el procesador XSLT que nos ayudar� a generar la cadena original
+        // crear el procesador XSLT que nos ayudaria generar la cadena original
         // con base en las reglas del archivo XSLT
         try {
         	TransformerFactory tFactory = TransformerFactory.newInstance();

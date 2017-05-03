@@ -16,25 +16,28 @@ public class ConstantesService {
 	}
 
 	public void setConstantes() {
+		
+		String path = "D:\\RESULTADO_TIMBRADO\\REPOSITORIO_TIMBRADO\\TimbradoNominas\\src\\main\\resources\\META-INF\\";
+		
 		this.constantes.setVersionComprobante("3.3");
 		this.constantes.setVersionNomina("1.2");
 		this.constantes.setLugarExpedicion("06060");
 		this.constantes.setRfcEmisor("SHC850101U37");
-		this.constantes.setNombreEmisor("SecretarÃ­a de Hacienda y CrÃ©dito PÃºblico");
+		this.constantes.setNombreEmisor("Secretaría de Hacienda y Crédito Público");
 		this.constantes.setRegimenFiscal("603");
 		this.constantes.setRegistroPatronal("0000699900");
 		this.constantes.setCantidad(1);
 		this.constantes.setCveUnidad("ACT");
-		this.constantes.setDescripcionConcepto("Pago de nÃ³mina");
+		this.constantes.setDescripcionConcepto("Pago de nómina");
 		this.constantes.setMetodoPago("PUE");
 		this.constantes.setUsoCfdi("P01");
 		this.constantes.setCveProdServ("01010101");
-		//this.constantes.setContrasenia("DICF760910XE");
-		this.constantes.setContrasenia("XJZwnDLL");
-		this.constantes.setFileCSDp12("CSD_SSHC850101U37.p12");
-		this.constantes.setFileEsquemaCFDIV33("cfdv33.xsd");
-		this.constantes.setFileEsquemaNominaV12("nomina12.xsd");
-		this.constantes.setFileTransformCadOrig("/Users/danielcruzmx/timbrado/TimbradoNominas/src/main/resources/META-INF/cadenaoriginal_3_3_sat.xslt");
+		this.constantes.setContrasenia("DICF760910XE");
+		//this.constantes.setContrasenia("XJZwnDLL");
+		this.constantes.setFileCSDp12(path + "CSD_SSHC850101U37.p12");
+		this.constantes.setFileEsquemaCFDIV33(path + "cfdv33.xsd");
+		this.constantes.setFileEsquemaNominaV12(path + "nomina12.xsd");
+		this.constantes.setFileTransformCadOrig(path + "cadenaoriginal_3_3_sat.xslt");
 		this.constantes.setFileKey("millave.key");
 		this.constantes.setNumCertificado("00001000000302376743");
 		this.constantes.setCertificado("MIIErjCCA5agAwIBAgIUMDAwMDEwMDAwMDAzMDIzNzY3NDMwDQYJ"
