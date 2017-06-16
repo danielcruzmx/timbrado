@@ -28,7 +28,7 @@ public class App {
 			ComprobanteDigitalService compDig = new ComprobanteDigitalService();
 			compDig.beginTransaction();
 
-			writeCadenas = new PrintWriter("D:\\RESULTADO_TIMBRADO\\" + idNomina + "_cadenas.txt");
+			writeCadenas = new PrintWriter("E:\\RESULTADO_TIMBRADO\\" + idNomina + "_cadenas.txt");
 		
 			for(DatosXML d: ldatos)
 			{
@@ -58,6 +58,8 @@ public class App {
 				// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		System.out.println("FIN DEL PROCESO");
 	}
 	
 	

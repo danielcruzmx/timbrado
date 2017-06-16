@@ -17,7 +17,7 @@ public class ConstantesService {
 
 	public void setConstantes() {
 		
-		String path = "D:\\RESULTADO_TIMBRADO\\REPOSITORIO_TIMBRADO\\TimbradoNominas\\src\\main\\resources\\META-INF\\";
+		String path = "E:\\PROYECTOS\\timbrado\\TimbradoNominas\\src\\main\\resources\\META-INF\\";
 		
 		this.constantes.setVersionComprobante("3.3");
 		this.constantes.setVersionNomina("1.2");
@@ -32,9 +32,9 @@ public class ConstantesService {
 		this.constantes.setMetodoPago("PUE");
 		this.constantes.setUsoCfdi("P01");
 		this.constantes.setCveProdServ("01010101");
-		this.constantes.setContrasenia("DICF760910XE");
+		this.constantes.setContrasenia("12345678a");
 		//this.constantes.setContrasenia("XJZwnDLL");
-		this.constantes.setFileCSDp12(path + "CSD_SSHC850101U37.p12");
+		this.constantes.setFileCSDp12(path + "CVA0506151X5.pfx");
 		this.constantes.setFileEsquemaCFDIV33(path + "cfdv33.xsd");
 		this.constantes.setFileEsquemaNominaV12(path + "nomina12.xsd");
 		this.constantes.setFileTransformCadOrig(path + "cadenaoriginal_3_3_sat.xslt");
