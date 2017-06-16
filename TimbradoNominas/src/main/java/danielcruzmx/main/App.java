@@ -8,6 +8,7 @@ import java.util.List;
 
 import danielcruzmx.business.GeneraComprobante;
 import danielcruzmx.business.GeneraListaPagos;
+import danielcruzmx.business.GeneraPaquete;
 import danielcruzmx.data.ComprobanteDigital;
 import danielcruzmx.data.ComprobanteDigitalPK;
 import danielcruzmx.domain.DatosXML;
@@ -59,7 +60,24 @@ public class App {
 			e.printStackTrace();
 		}
 		
-		System.out.println("FIN DEL PROCESO");
+		System.out.println("FIN DEL PROCESO DE GENERACION DE XML's");
+		
+		System.out.println("GENERANDO PAQUETES Y VALIDANDO XML's ");
+		
+		GeneraPaquete paq = new GeneraPaquete(idNomina);
+		
+		if(paq.validaXMLs(datos.getConstantes().getFileEsquemaCFDIV33(),
+						   datos.getConstantes().getFileEsquemaNominaV12())){
+			
+			System.out.println("XML's CORRECTOS ");
+			
+			// GENERA LISTA DE PAQUETES Y PAQUETE DE ENVIO 
+		};
+		
+		
+		
+		
+		
 	}
 	
 	
