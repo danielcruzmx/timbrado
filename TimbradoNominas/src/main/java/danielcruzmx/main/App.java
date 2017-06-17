@@ -24,6 +24,8 @@ public class App {
 		List <DatosXML> ldatos = datos.getListaDatos();
 		PrintWriter writeCadenas = null;
 		
+		boolean generados = true;
+		
 		try {
 
 			ComprobanteDigitalService compDig = new ComprobanteDigitalService();
@@ -40,12 +42,14 @@ public class App {
 		    		      				datos.getConstantes().getContrasenia(), 
 		    		      				datos.getConstantes().getFileTransformCadOrig());
 				
-				if(resultXML != null)
+				if(resultXML != null && xml.valida(resultXML, 
+												   datos.getConstantes().getFileEsquemaCFDIV33(),
+												   datos.getConstantes().getFileEsquemaNominaV12()))
 				{
 					writeCadenas.println(d.getCadenaOriginal());
 					compDig.save(comprobante(d, resultXML));
-
 				} else {
+					generados = false;
 					writeCadenas.println(d.getRfcReceptor() + "|" + "No se genero XML" + "||");
 				}
 			}
@@ -60,23 +64,19 @@ public class App {
 			e.printStackTrace();
 		}
 		
-		System.out.println("FIN DEL PROCESO DE GENERACION DE XML's");
+		if(generados){
 		
-		System.out.println("GENERANDO PAQUETES Y VALIDANDO XML's ");
+			System.out.println("GENERANDO PAQUETE ");
 		
-		GeneraPaquete paq = new GeneraPaquete(idNomina);
-		
-		if(paq.validaXMLs(datos.getConstantes().getFileEsquemaCFDIV33(),
-						   datos.getConstantes().getFileEsquemaNominaV12())){
+			GeneraPaquete paq = new GeneraPaquete(idNomina);
+			paq.getPaquete("E:\\RESULTADO_TIMBRADO\\envio_id_"+ idNomina +".xml");
 			
-			System.out.println("XML's CORRECTOS ");
+			System.out.println("ARCHIVO DE ENVIO "+ idNomina + " GENERADO ....");
 			
-			// GENERA LISTA DE PAQUETES Y PAQUETE DE ENVIO 
-		};
-		
-		
-		
-		
+		}	else {
+			
+			System.out.println("NO SE GENERO ARCHIVO DE ENVIO -> "+ idNomina + " !!!!!!!!");
+		}	
 		
 	}
 	

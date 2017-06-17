@@ -1,10 +1,12 @@
 package danielcruzmx.business;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
@@ -34,6 +36,12 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+
+import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 
 import org.apache.commons.codec.binary.Base64;
 import sun.misc.BASE64Encoder;
@@ -245,8 +253,14 @@ public class GeneraComprobante
         nomina.setEmisor(emisornomina);
         nomina.setReceptor(receptornomina);
         nomina.setPercepciones(percnomina);
-        nomina.setDeducciones(deducnomina);
-        nomina.setOtrosPagos(otrosnomina);
+        
+        if(deducnomina.getDeduccion().size() != 0){
+        	nomina.setDeducciones(deducnomina);
+        }	
+        
+        if(otrosnomina.getOtroPago().size() != 0 ){
+        	nomina.setOtrosPagos(otrosnomina);
+        }
 
         /** AGREGA NOMINA A COMPLEMENTO **/
         cComplemento.getAny().add(nomina);
@@ -509,5 +523,30 @@ public class GeneraComprobante
         }
     }
 
+	public boolean valida(String xml, String V33xsd, String V12xsd){
+		
+		boolean correcto = false;
+		
+		File fxsd1 = new File(V33xsd);
+		File fxsd2 = new File(V12xsd);
+		
+		try
+	    {
+			InputStream is = new ByteArrayInputStream( xml.getBytes("UTF-8"));
+			
+	        SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+	        Schema schema = factory.newSchema(new Source[] { new StreamSource(fxsd1), new StreamSource(fxsd2) } );
+	        Validator validator = schema.newValidator();
+	        validator.validate(new StreamSource(is));
+	        correcto = true;
+	    }
+	    catch(Exception ex)
+	    {
+	    	ex.printStackTrace();
+	        correcto = false;
+	    }
+
+		return correcto;
+	}
 	
 }
