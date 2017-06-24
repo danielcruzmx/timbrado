@@ -5,6 +5,7 @@
 		<class>danielcruzmx.data.ConceptoPagado</class>
 		<class>danielcruzmx.data.ComprobanteDigital</class>
 		<class>danielcruzmx.data.ComprobanteDigitalPK</class>
+		<class>danielcruzmx.data.NominasEjercicio</class>
 		<properties>
       		<property name="javax.persistence.jdbc.user" value="PRUEBA_FH" />
       		<property name="javax.persistence.jdbc.password" value="renovada84" />
