@@ -145,6 +145,7 @@ public class AppGui {
 					compDig.save(comprobante(d, resultXML));
 				} else {
 					generados = false;
+					System.out.println(resultXML);
 					writeCadenas.println(d.getRfcReceptor() + "|" + "No se genero XML" + "||");
 				}
 			}
